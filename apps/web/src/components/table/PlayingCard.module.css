@@ -1,0 +1,202 @@
+.card {
+  position: relative;
+  width: 72px;
+  height: 104px;
+  border: 4px solid #5b3216;
+  border-radius: 0;
+  background: #e8d7b3;
+  box-shadow: none;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: "VT323", "Noto Sans SC", monospace;
+  line-height: 1;
+  image-rendering: pixelated;
+  transition: none;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(73, 50, 31, 0.08) 0,
+      rgba(73, 50, 31, 0.08) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  pointer-events: none;
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover:not(.disableHoverLift) {
+  transform: translateY(-8px);
+  border-color: #9b6238;
+}
+
+.selected {
+  transform: translateY(-10px);
+  border-color: #9b6238;
+  outline: 2px solid #c89353;
+  outline-offset: -2px;
+}
+
+.interactive.selected:hover:not(.disableHoverLift) {
+  transform: translateY(-12px);
+}
+
+.disableHoverLift.selected {
+  transform: none;
+}
+
+.small {
+  width: 56px;
+  height: 82px;
+  border-width: 3px;
+}
+
+.red {
+  color: #a11f1f;
+}
+
+.black {
+  color: #2d2d2d;
+}
+
+.corner {
+  position: absolute;
+  z-index: 3;
+}
+
+.topLeft {
+  top: 3px;
+  left: 4px;
+}
+
+.topRight {
+  top: 3px;
+  right: 4px;
+}
+
+.bottomLeft {
+  bottom: 3px;
+  left: 4px;
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+
+.bottomRight {
+  bottom: 3px;
+  right: 4px;
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+
+.cornerChip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  gap: 0;
+  text-shadow: 0 0 0 #111;
+}
+
+.cornerRank {
+  font-size: 18px;
+  line-height: 0.9;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.cornerSuitIcon {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+
+.cornerJokerSuit {
+  font-size: 11px;
+  line-height: 0.9;
+  color: #2d2d2d;
+}
+
+.small .cornerRank {
+  font-size: 14px;
+}
+
+.small .cornerSuitIcon {
+  width: 8px;
+  height: 8px;
+}
+
+.small .cornerJokerSuit {
+  font-size: 9px;
+}
+
+.center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.centerSuitIcon {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
+.small .centerSuitIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.jokerCenter {
+  border: 3px solid #5b3216;
+  background: #d8c195;
+  padding: 4px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.jokerMark {
+  font-size: 16px;
+  line-height: 0.9;
+}
+
+.jokerLabel {
+  font-size: 10px;
+  line-height: 0.9;
+  color: #2d2d2d;
+}
+
+.small .jokerCenter {
+  border-width: 2px;
+  padding: 2px 4px;
+}
+
+.small .jokerMark {
+  font-size: 12px;
+}
+
+.small .jokerLabel {
+  font-size: 8px;
+}
+
+.disabledMask {
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 45, 45, 0.24);
+  pointer-events: none;
+}
