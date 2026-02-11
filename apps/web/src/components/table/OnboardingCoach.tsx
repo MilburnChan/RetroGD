@@ -31,6 +31,19 @@ interface OnboardingCoachProps {
 }
 
 export function OnboardingCoach({ open, stepIndex, onNext, onClose, onDisablePermanently }: OnboardingCoachProps) {
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent): void => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open, onClose]);
+
   if (!open) return null;
 
   const step = steps[Math.min(stepIndex, steps.length - 1)] as CoachStep;
@@ -57,3 +70,4 @@ export function OnboardingCoach({ open, stepIndex, onNext, onClose, onDisablePer
     </div>
   );
 }
+import { useEffect } from "react";
