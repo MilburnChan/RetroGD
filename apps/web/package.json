@@ -14,7 +14,7 @@
     "@retro/game-engine": "file:../../packages/game-engine",
     "@retro/shared": "file:../../packages/shared",
     "@supabase/supabase-js": "^2.48.1",
-    "next": "15.1.0",
+    "next": "^15.5.12",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
